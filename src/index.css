@@ -1,0 +1,381 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --terminal-green: #00FF00;
+  --terminal-bg: #1E1E1E;
+  --terminal-border: #333;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #121212;
+  color: var(--terminal-green);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Terminal-style selection */
+::selection {
+  background: var(--terminal-green);
+  color: #121212;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-border);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-green);
+}
+
+/* Terminal cursor animation */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Terminal text animation */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+/* Terminal glitch effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+/* Matrix effect animation */
+@keyframes matrix {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.matrix-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 255, 0, 0.15) 0%,
+      rgba(0, 255, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px);
+  background-size: 100% 200%;
+  animation: matrix 10s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.matrix-effect * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Glitch text effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #00ff00;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #ff0000;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+
+  4.166666666666666% {
+    clip: rect(91px, 9999px, 43px, 0);
+  }
+
+  8.333333333333332% {
+    clip: rect(85px, 9999px, 29px, 0);
+  }
+
+  12.5% {
+    clip: rect(64px, 9999px, 73px, 0);
+  }
+
+  16.666666666666664% {
+    clip: rect(32px, 9999px, 5px, 0);
+  }
+
+  20.833333333333336% {
+    clip: rect(39px, 9999px, 30px, 0);
+  }
+
+  25% {
+    clip: rect(24px, 9999px, 85px, 0);
+  }
+
+  29.166666666666668% {
+    clip: rect(38px, 9999px, 53px, 0);
+  }
+
+  33.33333333333333% {
+    clip: rect(80px, 9999px, 91px, 0);
+  }
+
+  37.5% {
+    clip: rect(17px, 9999px, 18px, 0);
+  }
+
+  41.66666666666667% {
+    clip: rect(68px, 9999px, 44px, 0);
+  }
+
+  45.83333333333333% {
+    clip: rect(65px, 9999px, 71px, 0);
+  }
+
+  50% {
+    clip: rect(40px, 9999px, 88px, 0);
+  }
+
+  54.166666666666664% {
+    clip: rect(44px, 9999px, 4px, 0);
+  }
+
+  58.333333333333336% {
+    clip: rect(67px, 9999px, 77px, 0);
+  }
+
+  62.5% {
+    clip: rect(80px, 9999px, 66px, 0);
+  }
+
+  66.66666666666666% {
+    clip: rect(12px, 9999px, 19px, 0);
+  }
+
+  70.83333333333334% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+
+  75% {
+    clip: rect(90px, 9999px, 85px, 0);
+  }
+
+  79.16666666666666% {
+    clip: rect(25px, 9999px, 36px, 0);
+  }
+
+  83.33333333333334% {
+    clip: rect(37px, 9999px, 25px, 0);
+  }
+
+  87.5% {
+    clip: rect(64px, 9999px, 82px, 0);
+  }
+
+  91.66666666666666% {
+    clip: rect(45px, 9999px, 27px, 0);
+  }
+
+  95.83333333333334% {
+    clip: rect(47px, 9999px, 91px, 0);
+  }
+
+  100% {
+    clip: rect(31px, 9999px, 57px, 0);
+  }
+}
+
+/* Retro monitor effect */
+.retro-monitor {
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-monitor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px);
+  pointer-events: none;
+  animation: scan 0.5s linear infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* Terminal window focus effect */
+.terminal-window:focus-within {
+  border-color: var(--terminal-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
