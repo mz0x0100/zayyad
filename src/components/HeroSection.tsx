@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Box, Typography, Container, Grid } from "@mui/material";
-import type { GridProps } from "@mui/material";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import SocialLinks from "./SocialLinks";
 

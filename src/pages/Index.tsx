@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Box, Container } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import TerminalTabs from "../components/TerminalTabs";
