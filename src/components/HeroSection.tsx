@@ -31,7 +31,7 @@ const HeroSection = () => {
       }}
     >
       <Grid container spacing={{ xs: 2, md: 4 }} alignItems="center">
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           <Box sx={{ position: "relative" }}>
             <motion.div
               initial="hidden"
@@ -140,7 +140,7 @@ const HeroSection = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
