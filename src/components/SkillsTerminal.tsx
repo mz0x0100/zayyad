@@ -17,18 +17,19 @@ const skills = {
     "Python/Flask",
     "PostgreSQL/MongoDB",
     "RESTful APIs",
+    "Socket.io",
   ],
   ai: [
+    "Computer Vision/OpenCV",
     "TensorFlow/PyTorch",
     "Scikit-learn",
-    "Computer Vision/OpenCV",
     "Data Analysis",
   ],
 };
 
 const SkillsTerminal = () => {
   const [currentCategory, setCurrentCategory] =
-    useState<keyof typeof skills>("frontend");
+    useState<keyof typeof skills>("languages");
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 

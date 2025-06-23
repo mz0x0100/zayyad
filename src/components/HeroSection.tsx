@@ -94,7 +94,7 @@ const HeroSection = () => {
                     fontSize: { xs: "1.25rem", md: "1.5rem" },
                   }}
                 >
-                  Full Stack Developer & AI Engineer
+                  Software Engineer & Cyber Security
                 </Typography>
               </motion.div>
 
@@ -120,7 +120,8 @@ const HeroSection = () => {
                   >
                     With 5+ years of experience in web development, AI/ML, and
                     cybersecurity. Passionate about building innovative
-                    solutions that push technological boundaries. Exploring web3
+                    solutions that push technological boundaries. Currently
+                    exploring web3
                   </Typography>
                 </Box>
                 <Box sx={{ mt: 2, display: "flex", justifyContent: "center" }}>

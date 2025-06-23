@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Tab, Tabs } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import TerminalTabs from "../components/TerminalTabs";
 import HeroSection from "../components/HeroSection";
@@ -10,10 +10,12 @@ import SocialLinks from "../components/SocialLinks";
 import CommandPalette from "../components/CommandPalette";
 import KeyboardShortcutsHelp from "../components/KeyboardShortcutsHelp";
 import { useKeyboardShortcuts } from "../hooks/useKeyboardShortcuts";
+import CustomTabPanel from "../components/CustomTabPanel";
 
 const projects = [
   {
     title: "DeTork",
+    category: "web3",
     description:
       "DeTork is the on-chain freelance marketplace for blockchain developers",
     techStack: [
@@ -31,15 +33,26 @@ const projects = [
     image: "/detork.png",
   },
   {
+    title: "Coixa",
+    category: "web3",
+    description: "An open-source web3 wallet for the Pi blockchain",
+    techStack: ["React.js", "Stellar SDK", "TypeScript", "React native"],
+    liveUrl: "https://coixa.vercel.app",
+    githubUrl: "https://github.com/mz0x0100/Coixa",
+    image: "/coinlet.png",
+  },
+  {
     title: "Coinlet",
+    category: "web3",
     description:
-      "Coinlet is a P2P trading platform for exchaning Pi cryptocurrency for Fiat on the Pi browser",
+      "Coinlet is a P2P trading platform for exchaning Pi cryptocurrency <> Fiat on the Pi browser",
     techStack: ["React.js", "Pi Sdk", "Node.js", "MongoDB", "Express"],
     liveUrl: "https://coinlet.vercel.app",
     image: "/coinlet.png",
   },
   {
     title: "AGDetection",
+    category: "ai",
     description:
       "Age and gender detection using real-time video stream analysis with TensorFlow and OpenCV",
     techStack: ["Python", "TensorFlow", "OpenCV"],
@@ -48,11 +61,30 @@ const projects = [
   },
   {
     title: "Virtual painter using gestures",
+    category: "ai",
     description:
       "A fun python project that allows users to draw on their screen using hand gestures captured by a webcam",
     techStack: ["Python", "TensorFlow", "OpenCV"],
     githubUrl: "https://github.com/mz0x0100/AGDetection",
     image: "/elon.png",
+  },
+  {
+    title: "Fend News",
+    category: "mobile",
+    description:
+      "Search, filter and get latest news trends from various news reliable sources",
+    techStack: ["React native", "TypeScript", "API"],
+    githubUrl: "https://github.com/mz0x0100/FendNews",
+    image: "/fnews.png",
+  },
+  {
+    title: "Student Portal",
+    category: "mobile",
+    description:
+      "Polytechnic students portal app with various tools to help students with their academic journey",
+    techStack: ["React native", "TypeScript", "API"],
+    githubUrl: "https://github.com/mz0x0100/FPTBStudPort",
+    image: "/fnews.png",
   },
 ];
 
@@ -150,6 +182,13 @@ const Index = () => {
     animate: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: 20 },
   };
+  const [tabValue, setTabValue] = useState(0);
+  const handleTabChange = (_: React.SyntheticEvent, value: number) => {
+    setTabValue(value);
+  };
+
+  const filterProjects = (category: string | null) =>
+    category ? projects.filter((p) => p.category === category) : projects;
 
   const renderContent = () => {
     switch (activeTab) {
@@ -169,28 +208,55 @@ const Index = () => {
         );
       case "projects":
         return (
-          <Container
-            maxWidth="lg"
+          <Box
+            // maxWidth="lg"
             sx={{
-              py: { xs: 2, md: 4 },
-              px: { xs: 1, sm: 2, md: 3 },
+              // py: { xs: 2, md: 4 },
+              // px: { xs: 1, sm: 2, md: 3 },
+              p: 2,
             }}
           >
-            <Box
-              sx={{
-                display: "grid",
-                gap: { xs: 2, md: 4 },
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  md: "repeat(auto-fill, minmax(450px, 1fr))",
-                },
-              }}
+            <Tabs
+              variant="scrollable"
+              value={tabValue}
+              onChange={handleTabChange}
+              sx={{ position: "sticky", top: 70 }}
             >
-              {projects.map((project) => (
-                <ProjectCard key={project.title} {...project} />
+              <Tab label={`All (${projects.length})`} value={0} />
+              <Tab
+                label={`Web3 (${filterProjects("web3").length})`}
+                value={1}
+              />
+              <Tab label={`AI (${filterProjects("ai").length})`} value={2} />
+              <Tab
+                label={`Mobile (${filterProjects("mobile").length})`}
+                value={3}
+              />
+            </Tabs>
+            <>
+              {Array.from({ length: 4 }).map((_, index) => (
+                <CustomTabPanel key={index} value={tabValue} index={index}>
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gap: { xs: 2, md: 4 },
+                      gridTemplateColumns: {
+                        xs: "1fr",
+                        md: "repeat(auto-fill, minmax(450px, 1fr))",
+                      },
+                    }}
+                  >
+                    {filterProjects(
+                      [null, "web3", "ai", "mobile"][index] as any
+                    ).map((project) => (
+                      <ProjectCard key={project.title} {...project} />
+                    ))}
+                  </Box>
+                </CustomTabPanel>
               ))}
-            </Box>
-          </Container>
+            </>
+            {/*  */}
+          </Box>
         );
       case "about":
         return (
