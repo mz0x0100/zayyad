@@ -118,10 +118,10 @@ const HeroSection = () => {
                       fontSize: { xs: "0.875rem", md: "1rem" },
                     }}
                   >
-                    With 6+ years of experience in web development, mobile
-                    development, AI/ML, and cybersecurity. Passionate about
-                    building innovative solutions that push technological
-                    boundaries. Currently exploring web3!
+                    With 6+ years of experience in web & mobile development,
+                    AI/ML, and cybersecurity. Passionate about building
+                    innovative solutions that push technological boundaries.
+                    Currently exploring web3!
                   </Typography>
                 </Box>
                 <Box sx={{ mt: 2, display: "flex", justifyContent: "center" }}>
