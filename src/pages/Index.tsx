@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container, Tab, Tabs } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import TerminalTabs from "../components/TerminalTabs";
 import HeroSection from "../components/HeroSection";
@@ -10,7 +10,14 @@ import SocialLinks from "../components/SocialLinks";
 import CommandPalette from "../components/CommandPalette";
 import KeyboardShortcutsHelp from "../components/KeyboardShortcutsHelp";
 import { useKeyboardShortcuts } from "../hooks/useKeyboardShortcuts";
-import CustomTabPanel from "../components/CustomTabPanel";
+// import CustomTabPanel from "../components/CustomTabPanel";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  // Divider,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const projects = [
   {
@@ -139,6 +146,28 @@ const projects = [
   },
 ];
 
+const categoryList = [
+  { label: `All (${projects.length})`, value: null },
+  {
+    label: `Web3 (${projects.filter((p) => p.category === "web3").length})`,
+    value: "web3",
+  },
+  {
+    label: `AI (${projects.filter((p) => p.category === "ai").length})`,
+    value: "ai",
+  },
+  {
+    label: `Mobile (${projects.filter((p) => p.category === "mobile").length})`,
+    value: "mobile",
+  },
+  {
+    label: `Cybersecurity (${
+      projects.filter((p) => p.category === "cybersecurity").length
+    })`,
+    value: "cybersecurity",
+  },
+];
+
 const Index = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -233,10 +262,7 @@ const Index = () => {
     animate: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: 20 },
   };
-  const [tabValue, setTabValue] = useState(0);
-  const handleTabChange = (_: React.SyntheticEvent, value: number) => {
-    setTabValue(value);
-  };
+  // Removed tabValue and handleTabChange (Tabs logic)
 
   const filterProjects = (category: string | null) =>
     category ? projects.filter((p) => p.category === category) : projects;
@@ -259,40 +285,15 @@ const Index = () => {
         );
       case "projects":
         return (
-          <Box
-            // maxWidth="lg"
-            sx={{
-              // py: { xs: 2, md: 4 },
-              // px: { xs: 1, sm: 2, md: 3 },
-              p: 2,
-            }}
-          >
-            <Tabs
-              variant="scrollable"
-              value={tabValue}
-              onChange={handleTabChange}
-              sx={{ position: "sticky", top: 70 }}
-            >
-              <Tab label={`All (${projects.length})`} value={0} />
-              <Tab
-                label={`Web3 (${filterProjects("web3").length})`}
-                value={1}
-              />
-              <Tab label={`AI (${filterProjects("ai").length})`} value={2} />
-              <Tab
-                label={`Mobile (${filterProjects("mobile").length})`}
-                value={3}
-              />
-              <Tab
-                label={`Cybersecurity (${
-                  filterProjects("cybersecurity").length
-                })`}
-                value={4}
-              />
-            </Tabs>
-            <>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CustomTabPanel key={index} value={tabValue} index={index}>
+          <Box sx={{ p: 2 }}>
+            {categoryList.map((cat, idx) => (
+              <Accordion key={cat.label}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography sx={{ fontFamily: "Fira Code", fontWeight: 500 }}>
+                    {cat.label}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                   <Box
                     sx={{
                       display: "grid",
@@ -303,18 +304,13 @@ const Index = () => {
                       },
                     }}
                   >
-                    {filterProjects(
-                      [null, "web3", "ai", "mobile", "cybersecurity"][
-                        index
-                      ] as any
-                    ).map((project) => (
+                    {filterProjects(cat.value).map((project) => (
                       <ProjectCard key={project.title} {...project} />
                     ))}
                   </Box>
-                </CustomTabPanel>
-              ))}
-            </>
-            {/*  */}
+                </AccordionDetails>
+              </Accordion>
+            ))}
           </Box>
         );
       case "about":
