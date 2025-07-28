@@ -90,7 +90,7 @@ const projects = [
     title: "KeyScan",
     category: "cybersecurity",
     description: "An advanced remote keylogging software",
-    techStack: ["C++", "Windows API"],
+    techStack: ["C++", "Windows API", "Winsock2", "Unix/Linux"],
     githubUrl: "https://github.com/4anonz/KeyScan",
     image: "/keyscan2.png",
   },
@@ -106,10 +106,36 @@ const projects = [
     title: "sshcred",
     category: "cybersecurity",
     description:
-      "An advanced SSH(secure shell) audit tool; brute-force login and perform information gathering",
+      "An advanced SSH(secure shell) audit tool; brute-force login, gather information and open SSH sessions",
     techStack: ["C++", "SSH", "Protocol", "Unix/Linux"],
     githubUrl: "https://github.com/4anonz/packt",
-    image: "/packt.png",
+    image: "/sshcred2.png",
+  },
+  {
+    title: "NexScanner",
+    category: "cybersecurity",
+    description:
+      "NexScanner is a discovery tool for admin panel and subdomains",
+    techStack: ["Python", "HTTP", "Protocol", "Unix/Linux"],
+    githubUrl: "https://github.com/4anonz/NexScanner",
+    image: "/nexscanner.png",
+  },
+  {
+    title: "Bzip",
+    category: "cybersecurity",
+    description: "Bzip is a brute force tool for password-protected zip file",
+    techStack: ["Python", "Unix/Linux"],
+    githubUrl: "https://github.com/4anonz/Bzip",
+    image: "/bzip.png",
+  },
+  {
+    title: "HTTPServer",
+    category: "cybersecurity",
+    description:
+      "HTTPServer is a simple Implementation Of HTTP Server in C programming",
+    techStack: ["C", "HTTP", "Protocol", "Linux", "Winsock2", "Sockets"],
+    githubUrl: "https://github.com/4anonz/HTTPServer",
+    image: "/httpserver.png",
   },
 ];
 
@@ -257,9 +283,15 @@ const Index = () => {
                 label={`Mobile (${filterProjects("mobile").length})`}
                 value={3}
               />
+              <Tab
+                label={`Cybersecurity (${
+                  filterProjects("cybersecurity").length
+                })`}
+                value={4}
+              />
             </Tabs>
             <>
-              {Array.from({ length: 4 }).map((_, index) => (
+              {Array.from({ length: 5 }).map((_, index) => (
                 <CustomTabPanel key={index} value={tabValue} index={index}>
                   <Box
                     sx={{
@@ -272,7 +304,9 @@ const Index = () => {
                     }}
                   >
                     {filterProjects(
-                      [null, "web3", "ai", "mobile"][index] as any
+                      [null, "web3", "ai", "mobile", "cybersecurity"][
+                        index
+                      ] as any
                     ).map((project) => (
                       <ProjectCard key={project.title} {...project} />
                     ))}
