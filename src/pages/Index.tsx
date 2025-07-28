@@ -92,7 +92,24 @@ const projects = [
     description: "An advanced remote keylogging software",
     techStack: ["C++", "Windows API"],
     githubUrl: "https://github.com/4anonz/KeyScan",
-    image: "/fnews.png",
+    image: "/keyscan2.png",
+  },
+  {
+    title: "Packt",
+    category: "cybersecurity",
+    description: "Simple command-line based network packet sniffer",
+    techStack: ["C", "Networking", "Unix/Linux"],
+    githubUrl: "https://github.com/4anonz/packt",
+    image: "/packt.png",
+  },
+  {
+    title: "sshcred",
+    category: "cybersecurity",
+    description:
+      "An advanced SSH(secure shell) audit tool; brute-force login and perform information gathering",
+    techStack: ["C++", "SSH", "Protocol", "Unix/Linux"],
+    githubUrl: "https://github.com/4anonz/packt",
+    image: "/packt.png",
   },
 ];
 
