@@ -35,11 +35,11 @@ const projects = [
   {
     title: "Coixa",
     category: "web3",
-    description: "An open-source web3 wallet for the Pi blockchain",
+    description: "Simple, secure and open-source web3 wallet",
     techStack: ["React.js", "Stellar SDK", "TypeScript", "React native"],
     liveUrl: "https://coixa.vercel.app",
     githubUrl: "https://github.com/mz0x0100/Coixa",
-    image: "/coinlet.png",
+    image: "/coixa-dashboard.png",
   },
   {
     title: "Coinlet",
@@ -60,19 +60,19 @@ const projects = [
     image: "/elon.png",
   },
   {
-    title: "Virtual painter using gestures",
+    title: "VirtualPainter",
     category: "ai",
     description:
-      "A fun python project that allows users to draw on their screen using hand gestures captured by a webcam",
+      "VirtualPainter is an interactive computer vision application that transforms your webcam into a virtual drawing canvas",
     techStack: ["Python", "TensorFlow", "OpenCV"],
-    githubUrl: "https://github.com/mz0x0100/AGDetection",
-    image: "/elon.png",
+    githubUrl: "https://github.com/mz0x0100/VirtualPainter",
+    image: "/vp.png",
   },
   {
     title: "Fend News",
     category: "mobile",
     description:
-      "Search, filter and get latest news trends from various news reliable sources",
+      "Search, filter and get latest news trends from various reliable news streams",
     techStack: ["React native", "TypeScript", "API"],
     githubUrl: "https://github.com/mz0x0100/FendNews",
     image: "/fnews.png",
@@ -84,6 +84,14 @@ const projects = [
       "Polytechnic students portal app with various tools to help students with their academic journey",
     techStack: ["React native", "TypeScript", "API"],
     githubUrl: "https://github.com/mz0x0100/FPTBStudPort",
+    image: "/fnews.png",
+  },
+  {
+    title: "KeyScan",
+    category: "cybersecurity",
+    description: "An advanced remote keylogging software",
+    techStack: ["C++", "Windows API"],
+    githubUrl: "https://github.com/4anonz/KeyScan",
     image: "/fnews.png",
   },
 ];
