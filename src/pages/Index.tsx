@@ -153,18 +153,18 @@ const categoryList = [
     value: "web3",
   },
   {
+    label: `Cybersecurity (${
+      projects.filter((p) => p.category === "cybersecurity").length
+    })`,
+    value: "cybersecurity",
+  },
+  {
     label: `AI (${projects.filter((p) => p.category === "ai").length})`,
     value: "ai",
   },
   {
     label: `Mobile (${projects.filter((p) => p.category === "mobile").length})`,
     value: "mobile",
-  },
-  {
-    label: `Cybersecurity (${
-      projects.filter((p) => p.category === "cybersecurity").length
-    })`,
-    value: "cybersecurity",
   },
 ];
 
@@ -286,6 +286,18 @@ const Index = () => {
       case "projects":
         return (
           <Box sx={{ p: 2 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: "Fira Code",
+                fontWeight: 500,
+                mb: 2,
+                color: "#ABB2BF",
+              }}
+            >
+              {" "}
+              Expand to view projects based on category
+            </Typography>
             {categoryList.map((cat, idx) => (
               <Accordion key={cat.label}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -343,7 +355,7 @@ const Index = () => {
                 {`# About Me
 
 ## Background
-I'm a passionate software engineer with 5+ years of experience in full-stack development, AI/ML, and cybersecurity. My journey began with ethical hacking, but my curiosity led me to explore various domains of technology.
+I'm a passionate software engineer with 6+ years of experience in full-stack development, AI/ML, and cybersecurity. My journey began with ethical hacking, but my curiosity led me to explore various domains of technology.
 
 ## Philosophy
 I believe in writing clean, maintainable code and building solutions that make a real impact with security in mind. My approach combines technical expertise with creative problem-solving.
