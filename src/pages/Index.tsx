@@ -298,7 +298,7 @@ const Index = () => {
               {" "}
               Expand to view projects based on category
             </Typography>
-            {categoryList.map((cat, idx) => (
+            {categoryList.map((cat, _idx) => (
               <Accordion key={cat.label}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography sx={{ fontFamily: "Fira Code", fontWeight: 500 }}>
