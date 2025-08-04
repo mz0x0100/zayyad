@@ -54,7 +54,7 @@ const projects = [
     description:
       "Coinlet is a P2P trading platform for exchaning Pi cryptocurrency <> Fiat on the Pi browser",
     techStack: ["React.js", "Pi Sdk", "Node.js", "MongoDB", "Express"],
-    liveUrl: "https://coinlet.vercel.app",
+    liveUrl: "https://coinlet2261.pinet.com",
     image: "/coinlet.png",
   },
   {
