@@ -35,7 +35,7 @@ const projects = [
       "Solana",
       "Anchor",
     ],
-    githubUrl: "https://github.com/mz0x0100/DetorkSmartContracts",
+    githubUrl: "https://github.com/0xZayyad/DetorkSmartContracts",
     liveUrl: "https://detork.vercel.app",
     image: "/detork.png",
   },
@@ -45,7 +45,7 @@ const projects = [
     description: "Simple, secure and open-source web3 wallet",
     techStack: ["React.js", "Stellar SDK", "TypeScript", "React native"],
     liveUrl: "https://coixa.vercel.app",
-    githubUrl: "https://github.com/mz0x0100/Coixa",
+    githubUrl: "https://github.com/0xZayyad/Coixa",
     image: "/coixa-dashboard.png",
   },
   {
@@ -63,7 +63,7 @@ const projects = [
     description:
       "Age and gender detection using real-time video stream analysis with TensorFlow and OpenCV",
     techStack: ["Python", "TensorFlow", "OpenCV"],
-    githubUrl: "https://github.com/mz0x0100/AGDetection",
+    githubUrl: "https://github.com/0xZayyad/AGDetection",
     image: "/elon.png",
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     description:
       "VirtualPainter is an interactive computer vision application that transforms your webcam into a virtual drawing canvas",
     techStack: ["Python", "TensorFlow", "OpenCV"],
-    githubUrl: "https://github.com/mz0x0100/VirtualPainter",
+    githubUrl: "https://github.com/0xZayyad/VirtualPainter",
     image: "/vp.png",
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     description:
       "Search, filter and get latest news trends from various reliable news streams",
     techStack: ["React native", "TypeScript", "API"],
-    githubUrl: "https://github.com/mz0x0100/FendNews",
+    githubUrl: "https://github.com/0xZayyad/FendNews",
     image: "/fnews.png",
   },
   {
@@ -90,7 +90,7 @@ const projects = [
     description:
       "Polytechnic students portal app with various tools to help students with their academic journey",
     techStack: ["React native", "TypeScript", "API"],
-    githubUrl: "https://github.com/mz0x0100/FPTBStudPort",
+    githubUrl: "https://github.com/0xZayyad/FPTBStudPort",
     image: "/fnews.png",
   },
   {
@@ -247,13 +247,13 @@ const Index = () => {
       id: "github",
       title: "View GitHub Profile",
       description: "Check out my open source contributions",
-      action: () => window.open("https://github.com/mz0x0100", "_blank"),
+      action: () => window.open("https://github.com/0xZayyad", "_blank"),
     },
     {
       id: "linkedin",
       title: "View LinkedIn Profile",
       description: "Connect with me professionally",
-      action: () => window.open("https://linkedin.com/in/mz0x0100", "_blank"),
+      action: () => window.open("https://linkedin.com/in/0xZayyad", "_blank"),
     },
   ];
 
